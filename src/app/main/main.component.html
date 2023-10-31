@@ -1,0 +1,140 @@
+<div class="d-flex align-items-center justify-content-center">
+    <div class="content">
+        <div class="mx-4 my-4 display d-flex ">
+            <div class="align-self-center ">
+                {{valueInCalc}}
+            </div>
+        </div>
+        <div class="d-flex w-100 ">
+            <div class="w-100">
+                
+                <div class="d-flex w-100 text-center">
+                    <button class="d-flex justify-content-center mt-3 button-operation ml-05" (click)="cot()">
+                        <div class="align-self-center ">cot</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-operation ml-1" (click)="tan()">
+                        <div class="align-self-center ">tan</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-operation ml-1" (click)="doublePlus()">
+                        <div class="align-self-center ">++</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-operation ml-1" (click)="doubleMinus()">
+                        <div class="align-self-center ">--</div>
+                    </button>
+                </div>
+                <div class="d-flex w-100 text-center">
+                    <button class="d-flex justify-content-center mt-3 button-operation ml-05" (click)="setOperand('^')">
+                        <div class="align-self-center ">^</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-operation ml-1" (click)="factorial()">
+                        <div class="align-self-center ">!</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-operation ml-1" (click)="setOperand('&&')">
+                        <div class="align-self-center ">&&</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-operation ml-1" (click)="setOperand('||')">
+                        <div class="align-self-center ">||</div>
+                    </button>
+                </div>
+                <div class="d-flex w-100 text-center">
+                    <button class="d-flex justify-content-center mt-3 button-operation ml-05" (click)="setOperand('<')">
+                        <div class="align-self-center "><</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-operation ml-1" (click)="setOperand('>')">
+                        <div class="align-self-center ">></div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-operation ml-1" (click)="log()">
+                        <div class="align-self-center ">log</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-operation ml-1" (click)="radios()">
+                        <div class="align-self-center ">п*r^2</div>
+                    </button>
+                </div>
+                <div class="d-flex w-100 text-center">
+                    <button class="d-flex justify-content-center mt-3 button-operation ml-05" (click)="sin()">
+                        <div class="align-self-center ">sin</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-operation ml-1" (click)="cos()">
+                        <div class="align-self-center ">cos</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-operation ml-1" (click)="setOperand('xor')">
+                        <div class="align-self-center ">xor</div>
+                    </button>
+                </div>
+            </div>
+            <hr>
+            <div class="w-100">
+                <div class="d-flex w-100 text-center">
+                    <button class="d-flex justify-content-center mt-3 button-number ml-05" (click)="setValue('(')">
+                        <div class="align-self-center ">(</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-number ml-1" (click)="setValue(')')">
+                        <div class="align-self-center ">)</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-number ml-1" (click)="setOperand('%')">
+                        <div class="align-self-center ">%</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-number ml-1" (click)="deleteSignLast()">
+                        <div class="align-self-center ">CE</div>
+                    </button>
+                </div>
+                <div class="d-flex w-100 text-center">
+                    <button class="d-flex justify-content-center mt-3 button-number ml-05" (click)="setValue('7')">
+                        <div class="align-self-center ">7</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-number ml-1" (click)="setValue('8')">
+                        <div class="align-self-center ">8</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-number ml-1" (click)="setValue('9')">
+                        <div class="align-self-center ">9</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-number ml-1" (click)="setOperand('÷')">
+                        <div class="align-self-center ">÷</div>
+                    </button>
+                </div>
+                <div class="d-flex w-100 text-center">
+                    <button class="d-flex justify-content-center mt-3 button-number ml-05" (click)="setValue('4')">
+                        <div class="align-self-center ">4</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-number ml-1" (click)="setValue('5')">
+                        <div class="align-self-center ">5</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-number ml-1" (click)="setValue('6')">
+                        <div class="align-self-center ">6</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-number ml-1" (click)="setOperand('*')">
+                        <div class="align-self-center ">*</div>
+                    </button>
+                </div>
+                <div class="d-flex w-100 text-center">
+                    <button class="d-flex justify-content-center mt-3 button-number ml-05" (click)="setValue('1')">
+                        <div class="align-self-center ">1</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-number ml-1" (click)="setValue('2')">
+                        <div class="align-self-center ">2</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-number ml-1" (click)="setValue('3')">
+                        <div class="align-self-center ">3</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-number ml-1" (click)="setOperand('-')">
+                        <div class="align-self-center ">-</div>
+                    </button>
+                </div>
+                <div class="d-flex w-100 text-center">
+                    <button class="d-flex justify-content-center mt-3 button-number ml-05" (click)="setValue('0')">
+                        <div class="align-self-center ">0</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-number ml-1" (click)="setValue('.')">
+                        <div class="align-self-center ">.</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-number ml-1" (click)="result()">
+                        <div class="align-self-center ">=</div>
+                    </button>
+                    <button class="d-flex justify-content-center mt-3 button-number ml-1" (click)="setOperand('+')">
+                        <div class="align-self-center ">+</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+.content {
+    border: 1px solid black;
+    width: 500px;
+    height: 500px;
+    margin-top: 1em;
+    background-color: antiquewhite;
+}
+
+.content .display {
+    background-color: white;
+    border: 1px solid black;
+    height: 70px;
+    border-radius: 20px;
+}
+
+hr {
+    border: none;
+    background-color: black;
+    color: black;
+    height: 310px;
+    width: 5px;
+}
+
+.button-number{
+    border: 1px solid black;
+    width: 45px;
+    height: 45px;
+    background-color: lightyellow;
+    border-radius: 10px;
+}
+
+.ml-1 {
+    margin-left: 1em;
+}
+
+.ml-05 {
+    margin-left: 0.5em;
+}
+
+.button-operation {
+    border-radius: 10px;
+    border: 1px solid black;
+    width: 45px;
+    height: 45px;
+    background-color: lightyellow;
+}

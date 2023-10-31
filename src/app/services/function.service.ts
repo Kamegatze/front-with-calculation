@@ -21,14 +21,11 @@ export class FunctionService {
     }
 
     tan(param : number) : Observable<object> {
-        
-        return of({response: Math.tan(param)});
-        // return this.http.get<object>(`${this.url}:8080${this.path}/tan?param=${param}`);
+        return this.http.post<object>(`${this.url}:8080${this.path}/tan`, {measurementType: 'DEGREES', value: param});
     }
 
     cot(param : number) : Observable<object> {
-        return of({response: 1 / (Math.tan(param))});
-        // return this.http.get<object>(`${this.url}:8080${this.path}/cot?param=${param}`);
+        return this.http.post<object>(`${this.url}:8080${this.path}/tan`, {measurementType: 'DEGREES', value: param});
     }
 
     sin(param: number) : Observable<object> {
@@ -65,6 +62,64 @@ export class FunctionService {
         }
 
         return of({response: result});
+        // return this.http.get<object>(`${this.url}:8080${this.path}/factorial?param=${param}`);
     }
-    // return this.http.get<object>(`${this.url}:8080${this.path}/factorial?param=${param}`);
+
+    multiple(paramOne : number, paramTwo: number) : Observable<object> {
+        return of({response: paramOne*paramTwo});
+        // return this.http.get<object>(`${this.url}:8080${this.path}/multiple?paramOne=${paramOne}&paramTwo=${paramTwo}`);
+    }
+
+    subtraction(paramOne : number, paramTwo: number) : Observable<object> {
+        return of({response: paramOne-paramTwo});
+        // return this.http.get<object>(`${this.url}:8080${this.path}/subtraction?paramOne=${paramOne}&paramTwo=${paramTwo}`);
+    }
+
+    addition(paramOne : number, paramTwo: number) : Observable<object> {
+        return of({response: paramOne+paramTwo});
+        // return this.http.get<object>(`${this.url}:8080${this.path}/subtraction?paramOne=${paramOne}&paramTwo=${paramTwo}`);
+    }
+
+    division(paramOne : number, paramTwo: number) : Observable<object> {
+        return of({response: paramOne/paramTwo});
+        // return this.http.get<object>(`${this.url}:8080${this.path}/division?paramOne=${paramOne}&paramTwo=${paramTwo}`);
+    }
+
+    pow(paramOne : number, paramTwo: number) : Observable<object> {
+        return of({response: Math.pow(paramOne,paramTwo)});
+        // return this.http.get<object>(`${this.url}:8080${this.path}/pow?paramOne=${paramOne}&paramTwo=${paramTwo}`);
+    }
+    
+    remainderFromDivision(paramOne : number, paramTwo: number) : Observable<object> {
+        return of({response: paramOne % paramTwo});
+        // return this.http.get<object>(`${this.url}:8080${this.path}/remainderFromDivision?paramOne=${paramOne}&paramTwo=${paramTwo}`);
+    }
+
+    and(paramOne : number, paramTwo: number) : Observable<object> {
+        return of({response: paramOne && paramTwo});
+        // return this.http.get<object>(`${this.url}:8080${this.path}/and?paramOne=${paramOne}&paramTwo=${paramTwo}`);
+    }
+
+
+    or(paramOne : number, paramTwo: number) : Observable<object> {
+        return of({response: paramOne || paramTwo});
+        // return this.http.get<object>(`${this.url}:8080${this.path}/or?paramOne=${paramOne}&paramTwo=${paramTwo}`);
+    }
+
+
+    more(paramOne : number, paramTwo: number) : Observable<object> {
+        return of({response: paramOne > paramTwo});
+        // return this.http.get<object>(`${this.url}:8080${this.path}/more?paramOne=${paramOne}&paramTwo=${paramTwo}`);
+    }
+
+
+    less(paramOne : number, paramTwo: number) : Observable<object> {
+        return of({response: paramOne < paramTwo});
+        // return this.http.get<object>(`${this.url}:8080${this.path}/less?paramOne=${paramOne}&paramTwo=${paramTwo}`);
+    }
+
+    xor(paramOne : number, paramTwo: number) : Observable<object> {
+        return of({response: paramOne ^ paramTwo});
+        // return this.http.get<object>(`${this.url}:8080${this.path}/less?paramOne=${paramOne}&paramTwo=${paramTwo}`);
+    }
 }

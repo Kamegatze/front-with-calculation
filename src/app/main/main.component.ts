@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FunctionService } from '../services/function.service';
+import { Response } from '../interface/response';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -9,6 +12,10 @@ export class MainComponent {
     protected valueInCalc : string = ''; 
 
     private operand : string = '';
+
+    private removeSubscribe! : Subscription;
+
+    constructor(private service: FunctionService) {}
 
     setValue(value: string) : void {
         this.valueInCalc = `${this.valueInCalc}${value}`;
@@ -33,37 +40,92 @@ export class MainComponent {
 
         switch (this.operand) {
             case '*' : 
-                this.valueInCalc = String(valueOne * valueTwo);
+                this.removeSubscribe?.unsubscribe();
+
+                this.removeSubscribe = this.service.multiple(Number(valueOne), Number(valueTwo)).subscribe(value => {
+                    const response : Response = <Response>value;
+                    this.valueInCalc = String(response?.response);
+                });
                 break;
             case '-' :
-                this.valueInCalc = String(valueOne - valueTwo);
+                this.removeSubscribe?.unsubscribe();
+
+                this.removeSubscribe = this.service.subtraction(Number(valueOne), Number(valueTwo)).subscribe(value => {
+                    const response : Response = <Response>value;
+                    this.valueInCalc = String(response?.response);
+                });
                 break;
             case '+' :
-                this.valueInCalc = String(valueOne + valueTwo);
+                this.removeSubscribe?.unsubscribe();
+
+                this.removeSubscribe = this.service.addition(Number(valueOne), Number(valueTwo)).subscribe(value => {
+                    const response : Response = <Response>value;
+                    this.valueInCalc = String(response?.response);
+                });
                 break;
             case '÷' :
-                this.valueInCalc = String(valueOne / valueTwo);
+                this.removeSubscribe?.unsubscribe();
+
+                this.removeSubscribe = this.service.division(Number(valueOne), Number(valueTwo)).subscribe(value => {
+                    const response : Response = <Response>value;
+                    this.valueInCalc = String(response?.response);
+                });
                 break;
             case '^':
-                this.valueInCalc = String(Math.pow(valueOne, valueTwo));
+                this.removeSubscribe?.unsubscribe();
+
+                this.removeSubscribe = this.service.pow(Number(valueOne), Number(valueTwo)).subscribe(value => {
+                    const response : Response = <Response>value;
+                    this.valueInCalc = String(response?.response);
+                });
                 break;
             case '%':
-                this.valueInCalc = String(valueOne % valueTwo);
+                this.removeSubscribe?.unsubscribe();
+
+                this.removeSubscribe = this.service.remainderFromDivision(Number(valueOne), Number(valueTwo)).subscribe(value => {
+                    const response : Response = <Response>value;
+                    this.valueInCalc = String(response?.response);
+                });
                 break;
             case '&&':
-                this.valueInCalc = String(valueOne && valueTwo);
+                this.removeSubscribe?.unsubscribe();
+
+                this.removeSubscribe = this.service.and(Number(valueOne), Number(valueTwo)).subscribe(value => {
+                    const response : Response = <Response>value;
+                    this.valueInCalc = String(response?.response);
+                });
                 break;
             case '||':
-                this.valueInCalc = String(valueOne || valueTwo);
+                this.removeSubscribe?.unsubscribe();
+
+                this.removeSubscribe = this.service.or(Number(valueOne), Number(valueTwo)).subscribe(value => {
+                    const response : Response = <Response>value;
+                    this.valueInCalc = String(response?.response);
+                });
                 break;
             case '>':
-                this.valueInCalc = String(valueOne > valueTwo);
+                this.removeSubscribe?.unsubscribe();
+
+                this.removeSubscribe = this.service.more(Number(valueOne), Number(valueTwo)).subscribe(value => {
+                    const response : Response = <Response>value;
+                    this.valueInCalc = String(response?.response);
+                });
                 break;
             case '<':
-                this.valueInCalc = String(valueOne < valueTwo);
+                this.removeSubscribe?.unsubscribe();
+
+                this.removeSubscribe = this.service.less(Number(valueOne), Number(valueTwo)).subscribe(value => {
+                    const response : Response = <Response>value;
+                    this.valueInCalc = String(response?.response);
+                });
                 break;
             case 'xor':
-                this.valueInCalc = String(valueOne ^ valueTwo);
+                this.removeSubscribe?.unsubscribe();
+
+                this.removeSubscribe = this.service.xor(Number(valueOne), Number(valueTwo)).subscribe(value => {
+                    const response : Response = <Response>value;
+                    this.valueInCalc = String(response?.response);
+                });
                 break;
             }
 
@@ -71,49 +133,85 @@ export class MainComponent {
     }
 
     cos() {
-        this.valueInCalc = String(Math.cos(Number(this.valueInCalc)));
+
+        this.removeSubscribe?.unsubscribe();
+
+        this.removeSubscribe = this.service.cos(Number(this.valueInCalc)).subscribe(value => {
+            const response : Response = <Response>value;
+            this.valueInCalc = String(response?.response);
+        });
     }
 
     tan() {
-        this.valueInCalc = String(Math.tan(Number(this.valueInCalc)));
+        this.removeSubscribe?.unsubscribe();
+
+        this.removeSubscribe = this.service.tan(Number(this.valueInCalc)).subscribe(value => {
+            const response : Response = <Response>value;
+            this.valueInCalc = String(response?.response);
+        });
     }
 
     cot() {
-        this.valueInCalc = String(1 / Math.tan(Number(this.valueInCalc)));
+        this.removeSubscribe?.unsubscribe();
+
+        this.removeSubscribe = this.service.cot(Number(this.valueInCalc)).subscribe(value => {
+            const response : Response = <Response>value;
+            this.valueInCalc = String(response?.response);
+        });
     }
 
     sin() {
-        this.valueInCalc = String(Math.sin(Number(this.valueInCalc)));
+        this.removeSubscribe?.unsubscribe();
+
+        this.removeSubscribe = this.service.sin(Number(this.valueInCalc)).subscribe(value => {
+            const response : Response = <Response>value;
+            this.valueInCalc = String(response?.response);
+        });
     }
 
     log() {
-        this.valueInCalc = String(Math.log(Number(this.valueInCalc)));
+        this.removeSubscribe?.unsubscribe();
+
+        this.removeSubscribe = this.service.log(Number(this.valueInCalc)).subscribe(value => {
+            const response : Response = <Response>value;
+            this.valueInCalc = String(response?.response);
+        });
     }
 
     radios() {
-        this.valueInCalc = String(Math.pow(Number(this.valueInCalc), 2) * Math.PI);
+        this.removeSubscribe?.unsubscribe();
+
+        this.removeSubscribe = this.service.radios(Number(this.valueInCalc)).subscribe(value => {
+            const response : Response = <Response>value;
+            this.valueInCalc = String(response?.response);
+        });
     }
 
     doublePlus() {
-        let value = Number(this.valueInCalc);
-        this.valueInCalc = String(++value);
-        console.log(value);
+        this.removeSubscribe?.unsubscribe();
+
+        this.removeSubscribe = this.service.doublePlus(Number(this.valueInCalc)).subscribe(value => {
+            const response : Response = <Response>value;
+            this.valueInCalc = String(response?.response);
+        });
     }
 
     doubleMinus() {
-        let value = Number(this.valueInCalc);
-        this.valueInCalc = String(--value);
+        this.removeSubscribe?.unsubscribe();
+
+        this.removeSubscribe = this.service.doubleMinus(Number(this.valueInCalc)).subscribe(value => {
+            const response : Response = <Response>value;
+            this.valueInCalc = String(response?.response);
+        });
         
     }
 
     factorial() {
-        const value = Number(this.valueInCalc);
+        this.removeSubscribe?.unsubscribe();
 
-        let result = 1;
-        for(let i = 1; i <= value; i++) {
-            result *= i;
-        }
-
-        this.valueInCalc = String(result);
+        this.removeSubscribe = this.service.factorial(Number(this.valueInCalc)).subscribe(value => {
+            const response : Response = <Response>value;
+            this.valueInCalc = String(response?.response);
+        });
     }
 }

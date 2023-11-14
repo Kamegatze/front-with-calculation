@@ -38,9 +38,8 @@ export class FunctionService {
         // return this.http.get<object>(`${this.url}:8080${this.path}/log?param=${param}`);
     }
 
-    radios(param: number) : Observable<object> {
-        return of({response: Math.pow(param, 2) * Math.PI});
-        // return this.http.get<object>(`${this.url}:8080${this.path}/radios?param=${param}`);
+    radios(value: number) : Observable<object> {
+        return this.http.get<object>(`${this.url}:9000/r/${value}`);
     }
 
     doublePlus(param: number) : Observable<object> {
@@ -120,6 +119,6 @@ export class FunctionService {
 
     xor(paramOne : number, paramTwo: number) : Observable<object> {
         return of({response: paramOne ^ paramTwo});
-        // return this.http.get<object>(`${this.url}:8080${this.path}/less?paramOne=${paramOne}&paramTwo=${paramTwo}`);
+        // return this.http.get<object>(`${this.url}:8080${this.path}/xor?paramOne=${paramOne}&paramTwo=${paramTwo}`);
     }
 }

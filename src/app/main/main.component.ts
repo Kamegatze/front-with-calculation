@@ -182,8 +182,8 @@ export class MainComponent {
         this.removeSubscribe?.unsubscribe();
 
         this.removeSubscribe = this.service.radios(Number(this.valueInCalc)).subscribe(value => {
-            const response : Response = <Response>value;
-            this.valueInCalc = String(response?.response);
+            const response : Record<string, any> = value;
+            this.valueInCalc = String(response?.['Response']);
         });
     }
 
